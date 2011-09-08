@@ -1,0 +1,289 @@
+#header{
+	text-align: center;
+	background: grey;
+	margin-top: 0;
+	padding: 20px;
+	font-size: 25px
+}
+
+body {
+	font-family: Helvetica;
+	/*font-family: 'Palatino','Palatino Linotype','Georgia',serif;*/
+}
+
+.home {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.home h1#first {
+	margin-top: 2em;
+	text-align: center;
+}
+
+.home h1#third {
+	text-align: center;
+	margin-bottom: 2em;
+}	
+.home img.img-second {
+	width: 30%;
+}
+
+p#second {
+	
+	text-align: center;
+}
+
+a:link#home, a:visited#home {
+	font: arial, sans-serif;
+	color: white;
+	text-decoration: underline;
+	margin: 0 20px;
+}
+
+
+a:hover#home {
+	color: white;
+	background: black;
+	text-decoration: underline;	
+	margin: 0 20px;
+}
+
+a:active#home {
+	text-decoration: underline;
+	color: yellow;
+}
+
+input:focus {
+	background-color: #FFFF66;
+}
+
+.register form input.submit:focus {
+	background-color: #CCC;
+}
+
+.register {
+	width: 70%;
+	margin: 1em auto 3em auto;
+	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	padding: 25px;
+	border: thin solid black;	
+}
+
+.register ol li, .main_tab ol li, .password_recovery ol li {
+	list-style-type: none;
+	margin-bottom: 1em;
+}
+
+.password_recovery ol li {
+	margin-left: -2.5em;
+}
+
+.register ol li label, .main_tab ol li label, .password_recovery ol li label{
+	float: left;
+	width: 10em;
+}
+
+.register form input.submit, .main_tab form input.submit, .password_recovery form input.submit {
+	width: auto;
+	margin-left: 15em;
+	margin-top: 1em;
+}	
+
+.password_recovery form input.submit {
+	margin-top: 0; 
+	margin-left: 12em;
+}
+	
+
+p#register_forgot_password {
+	font-size: 12px;
+	margin-top: 2em;
+	margin-left: 16.8em;
+}
+p#register_forgot_password a {
+	margin-left: 0;
+	margin-right: 15px;
+	text-decoration: underline;
+	color: black;
+}
+
+.errors {
+	background-color: red;
+}
+
+div.post {
+	width: 60%;
+	margin: 3em auto;
+	/*border: solid black;*/
+}
+
+div.post p#date{
+	float: left;
+	width: auto;
+	margin-left: -8em;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	display: inline;
+	color: #666666;
+	font-size: 14px;
+}
+
+#each_post:first-child {
+	margin-top: 0
+}
+
+div.post h1 {
+	font-size: 20px;
+	display: inline;
+	margin-left: 0;
+}
+
+div#each_post {
+	margin-top: 50px;
+}	
+
+a:link#post_url, a:visited#post_url, a:hover#post_url, a:active#post_url {
+	font: arial, sans-serif;
+	background: none;
+	color: #2F4F4F;
+	text-decoration: none;
+	margin-left: 0;
+}
+
+div.post p span#tags {
+	font: 12px Helvetica;
+	color: #666666;
+}
+
+span#edit {
+	font: 12px Helvetica;
+	float: right;
+}
+
+div#comments {
+	margin-top: 3em;
+	width: 65%;
+}
+
+div#comments div#each_comment {
+	margin: 1em 0;
+}
+
+div#comments div#each_comment p {
+	font-size: 14px;
+	margin: 0;
+}
+
+div#comments div#each_comment span#date {
+	color: #666666;
+	font-size: 14px;
+}
+div#comments div#each_comment p#actual_comment {
+	margin-top: 0;
+	text-align: justify;
+}
+
+h1#title {
+	font: arial, sans-serif;
+	color: #2F4F4F;
+}
+
+
+div.add_comment {
+	margin: 3em auto;
+}
+
+div.add_comment ol li {
+	list-style-type: none;
+	margin-bottom: 1em;
+	margin-left: -2.5em;
+}
+
+div.add_comment ol li label {
+	float: left;
+	width: 10em;
+}
+
+div.add_comment form input.submit {
+	width: auto;
+	margin-left: 12em;
+	margin-top: 1em;
+}	
+
+p.step-links {
+	text-align: center;
+}
+
+div.my_account {
+	width: 80%;
+	margin: 2em auto;
+	height: 300px;
+}	
+
+div.my_account div.side_tab {
+	border: solid black;
+	width: 18%;
+	margin: 0;
+	float: left;
+	height: 100%;
+	padding-bottom: 10px;
+}
+
+div.my_account div.main_tab {
+	border: solid black;
+	border-left: none;
+	width: 80%;
+	float: left;
+	height: 100%;
+	padding-bottom: 10px;
+}
+
+div.side_tab ul li {
+	margin-left: -2em;
+	list-style-type: none;
+
+}
+
+div.main_tab ul li {
+	list-style-type: none;
+
+}
+
+div.main_tab table{
+	width: 65%;
+	margin: 10px auto;
+	border: solid black;
+	border-collapse: collapse;
+}
+
+td,th {
+	border: solid black;
+}
+
+div.main_tab form ul li {
+	list-style-type: none;
+}
+
+div.main_tab ul li#title {
+	font-size: 20px;
+}
+
+div.main_tab ul li#details {
+	font-size: 10px;
+	margin-bottom: 20px;
+}
+
+td#small_text_size {
+	font-size: 7px;
+}
+
+#footer {
+	postion: absolute;
+	left: 300px;
+	top: 300px;
+	text-align: center;
+	background: grey;
+	font-size: 20px;
+	padding: 10px;
+}
