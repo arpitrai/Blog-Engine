@@ -1,0 +1,5 @@
+Please activate your account.
+
+Your activation key is {{ activation_key }}
+
+This expires in {{ expiration_days }} days

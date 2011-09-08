@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="post">
+	{% if posts.object_list %}
+		{% for post in posts.object_list %} 
+			<div id="each_post">
+				<p id="date">{{ post.create_date|date:"N d, Y" }}</p>
+				<h1><a href="{{ post.get_absolute_url }}" id="post_url">{{ post.title }}</a></h1>
+				{% autoescape off %}
+					<p>{{ post.details }}</p>
+				{% endautoescape %}
+				<p><span id="tags">Filed under: {{ post.tags }}</span>	{% if request.user.is_authenticated %}<span id="edit"><a href="/edit_post{{ post.get_absolute_url }}" id="post_url">Edit</a></span>{% endif %}</p>
+				{% if not detail %}
+					{% if post.comment_count %}
+						<p><a href="/{{ post.blog_id }}/{{ post.url }}">{{ post.comment_count }} comment{{ post.comment_count|pluralize }}</a><p>
+					{% else %}
+						<p><a href="/{{ post.blog_id }}/{{ post.url }}">Leave a Comment</a><p>
+					{% endif %}
+				{% endif %}
+			</div>
+			{% endfor %}
+		{% else %}
+				<div id="each_post">
+					<p id="date">{{ posts.create_date|date:"N d, Y" }}</p>
+					<h1><a href="{{ posts.get_absolute_url }}" id="post_url">{{ posts.title }}</a></h1>
+					{% autoescape off %}
+						<p>{{ posts.details }}</p>
+					{% endautoescape %}
+					<p><span id="tags">Filed under: {{ posts.tags }}</span>	{% if request.user.is_authenticated %}<span id="edit"><a href="/edit{{ posts.get_absolute_url }}" id="post_url">Edit</a></span>{% endif %}</p>
+					{% if not detail %}
+						{% if posts.comment_count %}
+							<p><a href="/{{ posts.blog_id }}/{{ posts.url }}">{{ posts.comment_count }} comment{{ posts.comment_count|pluralize }}</a><p>
+						{% else %}
+							<p><a href="/{{ posts.blog_id }}/{{ posts.url }}">Leave a Comment</a><p>
+						{% endif %}
+					{% endif %}
+				</div>
+			{% block comments %} {% endblock %}
+		{% endif %}
+		<p class="step-links">
+        	{% if posts.has_previous %}
+            	<a href="?page={{ posts.previous_page_number }}">previous</a>
+	        {% endif %}
+	
+    	    <span class="current">
+        	    Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+	        </span>
+	
+    	    {% if posts.has_next %}
+        	    <a href="?page={{ posts.next_page_number }}">next</a>
+	        {% endif %}
+		</p>
+	</div>
+{% endblock %}

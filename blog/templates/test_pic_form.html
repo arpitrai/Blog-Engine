@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="register">
+<h1>Create a Post</h1>
+
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+	<ol>
+		<li>
+			{{ test_pic_form.title.label_tag }}	
+			{{ test_pic_form.title }}
+			{% if test_pic_form.title.errors %}
+				<span class="errors">{{ test_pic_form.title.errors|striptags }}</span>
+			{% endif %}
+		</li>
+
+		<li>
+			{{ test_pic_form.pic.label_tag }}
+			{{ test_pic_form.pic }}
+			{% if test_pic_form.pic.errors %}
+				<span class="errors">{{ test_pic_form.pic.errors|striptags }}</span>
+			{% endif %}
+		</li>
+	</ol>
+			<input type="submit" class="submit" value="Submit Image">
+</form>
+</div>
+{% endblock %}

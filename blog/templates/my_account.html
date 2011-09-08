@@ -1,0 +1,19 @@
+{% extends "my_account_base.html" %}
+{% block main_tab %}
+<table>
+	<tr>
+		<th>Post Title</th>
+		<th>Date Created</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
+	{% for post in posts %}
+		<tr>
+			<td><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></td>
+			<td>{{ post.create_date }}</td>
+			<td><a href="/edit_post{{ post.get_absolute_url }}">Edit</a></td>
+			<td><a href="/delete_post{{ post.get_absolute_url }}">Delete</a></td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}

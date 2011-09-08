@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}<title>Blogger - Sign-in</title>{% endblock %}
+{% block content %}
+<div class='register'>
+<h1>Sign in to your Account</h1>
+<form action="{% url django.contrib.auth.views.login %}" method="post">
+	{% csrf_token %}
+	<ol>
+		<li>
+			{{ form.username.label_tag }}
+			{{ form.username }}
+			{% if form.errors %}
+				{% if form.username.errors %}
+					<span class="errors">{{ form.username.errors|striptags }}</span>
+				{% else %}
+					<span class="errors">Your username or password is incorrect</span>
+				{% endif %}
+			{% endif %}
+		</li>
+		<li>
+			{{ form.password.label_tag }}
+			{{ form.password }}
+			{% if form.password.errors %}
+				<span class="errors">{{ form.password.errors|striptags }}</span>
+			{% endif %}
+		</li>
+	</ol>
+	<input type="submit" class="submit" value="Login" />
+	<p id="register_forgot_password"><a href="/password_recovery/">Forgot Password</a><a href="/accounts/register/">Register</a></p>
+	<input type="hidden" name="next" value="{{ next }}" />
+</form>
+</div>
+{% endblock %}

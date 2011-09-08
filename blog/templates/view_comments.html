@@ -1,0 +1,28 @@
+{% extends "my_account_base.html" %}
+{% block title %}<title>View all comments</title>{% endblock %}
+{% block main_tab %}
+{% if comments %}
+<table>
+	<th>Post</th>
+	<th>Name</th>
+	<th>Comment</th>
+	<th>Date</th>
+	<th>Email</th>
+	<th>Website</th>
+	<th>Delete</th>
+	{% for comment in comments %}
+	<tr>
+		<td id="small_text_size"><a href="{{ comment.blog_post.get_absolute_url }}">{{ comment.blog_post.title }}</a></td>
+		<td id="small_text_size">{{ comment.name }}</td>
+		<td id="small_text_size">{{ comment.comment }}</td>
+		<td id="small_text_size">{{ comment.date_time_submission }}</td>
+		<td id="small_text_size">{{ comment.email }}</td>
+		<td id="small_text_size">{{ comment.website }}</td>
+		<td id="small_text_size"><a href="/delete_comment">Delete</a></td>
+	<tr>
+	{% endfor %}
+</table>
+{% else %}
+<p>Sorry. You have no comments on any of your posts</p>
+{% endif %}
+{% endblock %}

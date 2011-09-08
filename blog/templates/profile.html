@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="side_tab">
+	<p>First Name: {{ request.user.first_name }}</p>
+	<p>Last Name: {{ request.user.last_name }}</p>
+</div>
+{% endblock %}

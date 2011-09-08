@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %} <title>Create an Account | Blogger</title> {% endblock %}
+{% block content %}
+<div class="register">
+<h1>Create an Account</h1>
+<form action="" method="post">
+	<ol>
+		<li>
+			{{ form.username.label_tag }}
+			{{ form.username }}
+			{% if form.username.errors %}
+				<span class="errors">{{ form.username.errors|striptags }}</span>
+			{% endif %}
+		</li>
+
+		<li>
+			{{ form.password1.label_tag }}
+			{{ form.password1 }}
+			{% if form.password1.errors %}
+				<span class="errors">{{ form.password1.errors|striptags }}</span>
+			{% endif %}
+		</li>
+
+		<li>
+			<label for="id_password2">Password (again)</label>
+			{{ form.password2 }}
+			{% if form.password2.errors %}
+				<span class="errors">{{ form.password2.errors|striptags }}</span>
+			{% endif %}
+		</li>
+
+		<li>
+			{{ user_profile_form.blog_slug.label_tag }}
+			{{ user_profile_form.blog_slug }}
+			{% if user_profile_form.blog_slug.errors %}
+				<span class="errors">{{  user_profile_form.blog_slug.errors|striptags }}</span>
+			{% endif %}
+		</li>
+
+	</ol>
+		<input type="submit" class="submit" value="Create Account" />
+</form>
+</div>
+{% endblock %}

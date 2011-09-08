@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="my_account">
+	<div class="side_tab">
+		<ul>
+			<li>
+				<a href="/my_account">My Account</a>
+			</li>
+			<li>
+				<a href="/edit_profile">Edit Profile</a>
+			</li>
+
+			<li>	
+				<a href="/change_password">Change Password</a>
+			</li>
+		
+			<li>
+				<a href="/my_posts">My Posts</a>
+			</li>
+
+			<li>
+				<a href="/create">Create a Post</a>
+			</li>
+
+			<li>
+					<a href="/view_comments">View all Comments</a>
+			</li>
+		</ul>
+	</div>
+	<div class="main_tab">
+		{% block main_tab %}
+		{% endblock %}
+	</div>
+</div>
+{% endblock %}

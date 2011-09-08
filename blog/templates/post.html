@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="post">
+	<div id="each_post">
+		<p id="date">{{ post.create_date|date:"N d, Y" }}</p>
+		<h1><a href="{{ post.get_absolute_url }}" id="post_url">{{ post.title }}</a></h1>
+		{% autoescape off %}
+			<p>{{ post.details }}</p>
+		{% endautoescape %}
+		<p><span id="tags">Filed under: {{ post.tags }}</span>	{% if request.user.is_authenticated %}<span id="edit"><a href="/edit_post{{ post.get_absolute_url }}" id="post_url">Edit</a></span>{% endif %}</p>
+	</div>
+		{% block comments %} {% endblock %}
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}
+	{% ifequal post_function 'create' %}
+		<title>Create a Post | Blogger</title>
+	{% else %}
+		<title>Edit a Post | Blogger</title>
+	{% endifequal %}
+{% endblock %}
+
+{% block content %}
+<div class="register">
+{% ifequal post_function 'create' %}
+	<h1>Create a Post</h1>
+{% else %}
+	<h1>Edit a Post</h1>
+{% endifequal %}
+
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+	<ol>
+		<li>
+			{{ post_form.title.label_tag }}	
+			{{ post_form.title }}
+			{% if post_form.title.errors %}
+				<span class="errors">{{ post_form.title.errors|striptags }}</span>
+			{% endif %}
+		</li>
+
+		<li>
+			{{ post_form.create_date.label_tag }}	
+			{{ post_form.create_date }}
+			{% if post_form.create_date.errors %}
+				<span class="errors">{{ post_form.create_date.errors|striptags }}</span>
+			{% endif %}
+		</li>
+
+		<li>
+			{{ post_form.details.label_tag }}	
+			{{ post_form.details }}
+			{% if post_form.details.errors %}
+				<span class="errors">{{ post_form.details.errors|striptags }}</span>
+			{% endif %}
+		</li>
+		<li>
+			{{ post_form.tags.label_tag }}	
+			{{ post_form.tags }}
+			{% if post_form.tags.errors %}
+				<span class="errors">{{ post_form.tags.errors|striptags }}</span>
+			{% endif %}
+		</li>
+		<li>
+			{{ pic_upload_form.pic.label_tag }}
+			{{ pic_upload_form.pic }}
+			{% if pic_upload_form.pic.errors %}
+				<span class="errors">{{ pic_upload_form.pic.errors|striptags }}</span>
+			{% endif %}
+		</li>
+	</ol>
+		{% ifequal post_function 'create' %}
+			<input type="submit" class="submit" value="Create Post">
+		{% else %}
+			<input type="submit" class="submit" value="Edit Post">
+		{% endifequal %}
+
+</form>
+</div>
+{% endblock %}

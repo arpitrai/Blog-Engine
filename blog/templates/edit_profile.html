@@ -1,0 +1,16 @@
+{% extends "my_account_base.html" %}
+{% block main_tab %}
+<form action="" method="post">
+	<ol>
+		<li>
+			<label>First Name</label>
+			<input type="text" name="first_name" value="{{ request.user.first_name }}" />
+		</li>
+		<li>
+			<label>Last Name</label>
+			<input type="text" name="last_name" value="{{ request.user.last_name }}" />
+		</li>
+	</ol>
+			<input type="submit" class="submit" value="Submit" />
+</form>
+{% endblock %}

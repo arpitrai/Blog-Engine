@@ -1,0 +1,57 @@
+{% extends "post.html" %}
+{% block comments %}
+{% if detail %}
+	{% if comments %}
+		<div id="comments">
+			<h1 id="title">Comments</h1>
+				{% for c in comments %} 
+					<div id="each_comment">
+						<p><a href="{{ c.website }}"> {{ c.name }}</a> on <span id="date">{{ c.date_time_submission|date:"l M d, Y P" }}</span></p>
+						{% autoescape off %}
+							<p>{{ c.comment }}</p>
+						{% endautoescape %}
+					</div>
+				{% endfor %}
+		</div>
+	{% endif %}
+	<div class="add_comment">
+		<h1 id="title">Add a Comment</h1>
+		<form action="" method="post">
+		<ol>
+			<li>
+				{{ comment_form.name.label_tag }}
+				{{ comment_form.name }}
+				{% if comment_form.name.errors %}
+					<span class="errors">{{ comment_form.name.errors|striptags }}</span>
+				{% endif %}
+			</li>
+		
+			<li>
+				{{ comment_form.email.label_tag }}
+				{{ comment_form.email }}
+				{% if comment_form.email.errors %}
+					<span class="errors">{{ comment_form.email.errors|striptags }}</span>
+				{% endif %}
+			</li>
+				
+			<li>
+				{{ comment_form.website.label_tag }}
+				{{ comment_form.website }}
+				{% if comment_form.website.errors %}
+					<span class="errors">{{ comment_form.website.errors|striptags }}</span>
+				{% endif %}
+			</li>
+	
+			<li>
+				{{ comment_form.comment.label_tag }}
+				{{ comment_form.comment }}
+				{% if comment_form.comment.errors %}
+					<span class="errors">{{  comment_form.comment.errors|striptags }}</span>
+				{% endif %}
+			</li>
+		</ol>
+		<input type="submit" class="submit" value="Submit Comment" />
+		</form>
+	</div>
+{% endif %}
+{% endblock %}
