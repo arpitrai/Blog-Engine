@@ -111,8 +111,8 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/my_account/'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587 
-EMAIL_HOST_USER = 'george.friedman@gmail.com'
-EMAIL_HOST_PASSWORD = '9832196728'
+EMAIL_HOST_USER = 'xxx@gmail.com'
+EMAIL_HOST_PASSWORD = 'xxx'
 EMAIL_USE_TLS = True
 ACCOUNT_ACTIVATION_DAYS = 7
 
